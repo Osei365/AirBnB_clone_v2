@@ -4,6 +4,7 @@
 from fabric.api import *
 from datetime import datetime as dt
 
+
 def do_pack():
     """function to archive web static."""
     local('mkdir -p versions')
