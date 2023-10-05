@@ -12,9 +12,9 @@ def do_deploy(archive_path):
         return False
     fn = archive_path.split('/')[1]
     dest_file = '/tmp/' + fn
-    ef = fn.split('.')[0] # end file
+    ef = fn.split('.')[0]  # end file
     path = '/data/web_static/releases/{}/'.format(ef)
-    
+
     if put(archive_path, dest_file).failed:
         return False
     if run('mkdir -p {}'.format(path)).failed:
