@@ -10,7 +10,7 @@ def do_deploy(archive_path):
     """define a function to handle web static."""
     if os.path.isfile(archive_path) is False:
         return False
-    fn = archive_path.split('/')[1]
+    fn = archive_path.split('/')[-1]
     dest_file = '/tmp/' + fn
     ef = fn.split('.')[0]  # end file
     path = '/data/web_static/releases/{}/'.format(ef)
