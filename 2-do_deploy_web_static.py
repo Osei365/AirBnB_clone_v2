@@ -9,7 +9,7 @@ env.hosts = ['18.204.5.64', '52.21.57.114']
 
 def do_deploy(archive_path):
     """define a function to handle web static."""
-    if os.path.isfile(archive_path) is False:
+    if os.path.exists(archive_path) is False:
         return False
     fn = archive_path.split('/')[-1]
     dest_file = '/tmp/' + fn
