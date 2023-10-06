@@ -20,5 +20,6 @@ def do_clean(number=0):
     for item in archives:
         local('rm {}{}'.format(local_dir, item))
     archives = run("ls -tr {}".format(remote_dir)).split()
+    archives = [a for a in archives if "web_static_" in a]
     [archives.pop() for i in range(number)]
     [run("rm -rf {}{}".format(remote_dir, a)) for a in archives]
