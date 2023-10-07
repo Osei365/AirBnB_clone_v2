@@ -7,13 +7,7 @@ env.user = 'ubuntu'
 env.hosts = ['18.204.5.64', '52.21.57.114']
 env.key_filename = '~/.ssh/id_rsa'
 
-
-def lrun(arg):
-    if env.host == 'localhost':
-        result = local(arg)
-    else:
-        result = run(arg)
-    
+  
 def do_deploy(archive_path):
     """define a function to handle web static."""
     if os.path.exists(archive_path) is False:
@@ -25,19 +19,19 @@ def do_deploy(archive_path):
 
     if put(archive_path, dest_file).failed:
         return False
-    if lrun('mkdir -p {}'.format(path)).failed:
+    if run('mkdir -p {}'.format(path)).faied:
         return False
-    if lrun('tar -xzf /tmp/{} -C {}'.format(fn, path)).failed:
+    if run('tar -xzf /tmp/{} -C {}'.format(fn, path)).failed:
         return False
-    if lrun('rm /tmp/{}'.format(fn)).failed:
+    if run('rm /tmp/{}'.format(fn)).failed:
         return False
-    if lrun('mv {}web_static/* {}'.format(path, path)).failed:
+    if run('mv {}web_static/* {}'.format(path, path)).failed:
         return False
-    if lrun('rm -rf {}web_static'.format(path)).failed:
+    if run('rm -rf {}web_static'.format(path)).failed:
         return False
-    if lrun('rm -rf /data/web_static/current').failed:
+    if run('rm -rf /data/web_static/current').failed:
         return False
-    if lrun('ln -s {} /data/web_static/current'.format(path)).failed:
+    if run('ln -s {} /data/web_static/current'.format(path)).failed:
         return False
     print('New version deployed!')
     return True
