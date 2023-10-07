@@ -7,7 +7,7 @@ env.user = 'ubuntu'
 env.hosts = ['18.204.5.64', '52.21.57.114']
 env.key_filename = '~/.ssh/id_rsa'
 
-@runs_once
+
 def do_deploy(archive_path):
     """define a function to handle web static."""
     if os.path.exists(archive_path) is False:
