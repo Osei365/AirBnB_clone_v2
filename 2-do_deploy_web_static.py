@@ -4,7 +4,7 @@ import os
 from fabric.api import *
 
 env.user = 'ubuntu'
-env.hosts = ['18.204.5.64', '52.21.57.114']
+env.hosts = ['localhost', '18.204.5.64', '52.21.57.114']
 env.key_filename = '~/.ssh/id_rsa'
 
 
