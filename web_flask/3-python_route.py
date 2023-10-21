@@ -22,11 +22,11 @@ def display_c(text):
     return 'C {}'.format(escape(text))
 
 
-@app.route('/python', strict_slashes=False)
+@app.route('/python/', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def display_python(text='is cool'):
     text = text.replace('_', ' ')
-    return 'python {}'.format(escape(text))
+    return 'Python {}'.format(escape(text))
 
 
 if __name__ == "__main__":
